@@ -114,14 +114,6 @@ returns = [avg_return]
 
 for _ in range(num_iterations):
     # Collect a few steps using collect_policy and save to the replay buffer.
-    # TODO: Don't think these 2 lines do anything as we are using the iterator defined above.
-    # TODO: Consider updating iterator here after collect_data, something like this:
-    # dataset = replay_buffer.as_dataset(
-    #     num_parallel_calls=3,
-    #     sample_batch_size=batch_size,
-    #     num_steps=2).prefetch(3)
-    # iterator = iter(dataset)
-
     collect_data(train_env, agent.collect_policy, replay_buffer,
                  steps=collect_steps_per_iteration)
 
